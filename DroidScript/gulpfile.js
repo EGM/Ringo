@@ -6,5 +6,5 @@ gulp.task('default', function() {
   
 });
 gulp.task('run', shell.task([
-    'node functionlist'
+    'node index'
   ]));

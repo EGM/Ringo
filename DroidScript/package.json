@@ -2,18 +2,20 @@
   "name": "droidscript-help",
   "version": "1.0.0",
   "description": "DroidScript Help",
-  "main": "functionlist.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node functionlist"
+    "run": "node index"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "acorn": "^5.2.1",
+    "esprima": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.6.3"
   },
-  "jshintConfig":{
+  "jshintConfig": {
     "esversion": 6
   }
 }
