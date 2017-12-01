@@ -2,12 +2,13 @@
 /*
     Parse source code and generate list of functions.
 */
+const Card = require('./card');
 
 const fs = require('fs');
 const acorn = require('acorn');
 const walk = require('acorn/dist/walk');
 
-//const getFunctions = require('./getfunctions');
+const getFunctions = require('./getfunctions');
 
 const fileName = './app.js';
 let sourceText = '';
@@ -28,12 +29,15 @@ fs.readFile(fileName, 'utf8', function (err, sourceText) {
     }
     else {
         
+        var test = getFunctions(sourceText);
         /*
             Traverse the abstract syntax tree looking for function expressions 
             (such as 'this.GetType = function() {...}'),
             and the ancestors of that FunctionExpression node.
             - All of the nodes we want have an ancestor list with a length of six.
+              
         */
+/*
         walk.ancestor(acorn.parse(sourceText), {
             FunctionExpression(_, ancestors) {
                 if (ancestors.length === 6) {
@@ -59,11 +63,8 @@ fs.readFile(fileName, 'utf8', function (err, sourceText) {
                 }
             }
         })
-        console.log(functionList.map(fn => ('000'+fn.number).slice(-4) +':'+ fn.obj +':('+ fn.parent +'):'+ fn.name +':['+ fn.params +']'));
+        //console.log(functionList.map(fn => ('000'+fn.number).slice(-4) +':'+ fn.obj +':('+ fn.parent +'):'+ fn.name +':['+ fn.params +']'));
+        */
     }
 });
-
-
-
-
 

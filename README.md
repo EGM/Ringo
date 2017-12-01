@@ -29,6 +29,5 @@ Please feel free to clone this repo, add your knowledge, and make a pull request
 * Create example presenter(s).
 
 >### Other projects of note:
->* [The DroidScript Wiki](
-http://wiki.droidscript.me.uk/doku.php) 
+>* [The DroidScript Wiki](http://wiki.droidscript.me.uk/doku.php) 
 >* [DroidScript/Docs on GitHub](https://github.com/DroidScript/Docs)
