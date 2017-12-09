@@ -1,45 +1,65 @@
 /**
- * Card
- * 
- * Describes a DroidScript object method.
- * @param {number} id 
- * @param {string} name 
- * @param {string} method
- * @returns {Card} 
+ * Describes a single DroidScript function.
+ * @class Card
  */
-function Card(id, name, method) {
-    this.id = id;
-    this.object = {
-        name: name,
-        type: ''
+class Card {
+/**
+ * Creates an instance of Card.
+ * @param {number} [id=-1] 
+ * @param {string} [name=''] 
+ * @param {string} [method=''] 
+ * @memberof Card
+ */
+constructor(id = -1, name = '', method = '') {
+        /**
+         * Unique card identification number.
+         * @property {number} id
+         */
+        this.id = id;
+        this.object = {
+            name: name,
+            type: ''
+        };
+        this.method = method;
+        this.desc = '';
+        this.params = [];
+        this.examples = [];
+        return this;
     }
-    this.method = method;
-    this.desc = '';
-    this.params = [];
-    this.examples = [];
-    return this;
+    /**
+     * Returns JSON encoded card.
+     * @returns {string}
+     * @memberof Card
+     */
+    toString() { return JSON.stringify(this); }
 }
-Card.prototype.toString = function() { return JSON.stringify(this); };
-Card.prototype.Param = function (name, type) {
-	this.name = name;
-	this.type = type;
-}
-Card.prototype.Param.prototype.toString = function() { return JSON.stringify(this); };
+/**
+ * Describes a single DroidScript function parameter.
+ * @class Param
+ */
+Card.prototype.Param = class Param{
+/**
+ * Creates an instance of Param.
+ * @param {string} [name=''] 
+ * @param {string} [type=''] 
+ * @memberof Param
+ */
+constructor(name = '', type = '') {
+        this.name = name;
+        this.type = type;
+        return this;
+    }
+    toString() { return JSON.stringify(this); }
+};
+Card.prototype.Example = class {
+    constructor(code = '') {
+        this.code = code;
+        this.html = '';
+        return this; 
+    }
+    toString() { return this.code; }
+};
 
-// If using with node
-if (typeof module !== 'undefined') {
-	module.exports = Card;
-}
-
-var temp = new Card(-1, 'Doohickey', 'SuperMethod');
-var p1 = new temp.Param('txt','string');
-var p2 = new temp.Param('n','number');
-var ps = [];
-
-ps.push( p1 );
-ps.push( p2 );
-
-alert( JSON.stringify( ps ));
-alert(temp);
-alert(p1);
-alert(ps);
+// The next two lines export function if under node.
+module = module || {};
+module.exports = Card;

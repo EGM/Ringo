@@ -4,11 +4,24 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "type": "npm",
+            "script": "test",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "run",
+            "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "test",
+            "problemMatcher": []
+        },
+        {
             "type": "gulp",
             "task": "run",
-            "problemMatcher": [
-                "$jshint"
-            ]
+            "problemMatcher": []
         }
     ]
 }
